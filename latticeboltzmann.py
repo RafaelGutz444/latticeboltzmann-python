@@ -41,7 +41,14 @@ def main():
 
     # Cylinder boundary
     X, Y = np.meshgrid(range(Nx), range(Ny))
-    cylinder = (X - Nx / 4) ** 2 + (Y - Ny / 2) ** 2 < (Ny / 4) ** 2            # LHS = cylinder positioning, RHS = cylinder size. Ex: Ny/x as x increases, the cylinder diameter decreases and vice versa.
+    cylinder = (X - Nx/4) ** 2 + (Y - Ny/2) ** 2 < (Ny / 4) ** 2
+    # LHS = cylinder positioning. value p_minimum = 1. Values below 1 break the code
+    #   X-Nx/p as p decreases, cylinder shifts to the right where max p = 1. is half off the viewing window.
+    #   Y-Ny/p as p decreases, cylinder shifts down
+
+    # RHS = cylinder size.
+    #   Ex: Ny/x as x increases, the cylinder diameter decreases and vice versa.
+    #   x-values below 2 make the cylinder so large, flow cannot pass around.
 
     # Prep figure
     fig = plt.figure(figsize=(10, 4), dpi=100)
