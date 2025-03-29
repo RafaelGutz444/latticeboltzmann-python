@@ -41,10 +41,10 @@ def main():
 
     # Cylinder boundary
     X, Y = np.meshgrid(range(Nx), range(Ny))
-    cylinder = (X - Nx / 4) ** 2 + (Y - Ny / 2) ** 2 < (Ny / 4) ** 2
+    cylinder = (X - Nx / 4) ** 2 + (Y - Ny / 2) ** 2 < (Ny / 4) ** 2            # LHS = cylinder positioning, RHS = cylinder size. Ex: Ny/x as x increases, the cylinder diameter decreases and vice versa.
 
     # Prep figure
-    fig = plt.figure(figsize=(4, 2), dpi=80)
+    fig = plt.figure(figsize=(10, 4), dpi=100)
 
     # Simulation Main Loop
     for it in range(Nt):
@@ -80,6 +80,7 @@ def main():
             plt.cla()
             ux[cylinder] = 0
             uy[cylinder] = 0
+
             vorticity = (np.roll(ux, -1, axis=0) - np.roll(ux, 1, axis=0)) - (
                         np.roll(uy, -1, axis=1) - np.roll(uy, 1, axis=1))
             vorticity[cylinder] = np.nan
