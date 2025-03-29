@@ -18,8 +18,8 @@ def main():
     Nx = 400  # resolution x-dir
     Ny = 100  # resolution y-dir
     rho0 = 100  # average density
-    tau = 0.6  # collision timescale
-    Nt = 4000  # number of timesteps
+    tau = 0.6 # collision timescale
+    Nt = 4000  # number of timesteps (overall length of simulation)
     plotRealTime = True  # switch on for plotting as the simulation goes along
 
     # Lattice speeds / weights
